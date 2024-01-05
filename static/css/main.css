@@ -18,6 +18,36 @@ a:link {
     text-decoration: none;
 }
 
+/* SECTION :        hero section         */
+
+header {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/static/img/hero.jpg");
+    background-size: cover;
+    height: 91vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ddd;
+
+    text-align: center;
+    letter-spacing: 1px;
+    word-spacing: 1px;
+}
+
+header h2 {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+}
+
+.important {
+    color: red;
+}
+
+header p {
+    font-size: 1.8rem;
+}
+
 /* SECTION :        navigation         */
 
 nav {
