@@ -17,65 +17,20 @@
 {% block content %}
 
 <section class="index-blog">
-    <article>
-        <img src="{% static "img/a.jpg" %}" alt="">
-
-        <div>
-            <h3>Lorem ipsum dolor sit.</h3>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, quia incidunt. Facere necessitatibus hic
-                debitis reprehenderit soluta accusamus iusto ullam recusandae facilis cupiditate eveniet laudantium, assumenda
-                laboriosam, ipsa quasi inventore.
-            </p>
-
-            <a href="/" class="read-more">Read More...</a>
-        </div>
-    </article>
+    {% for blog in blogs %}
 
     <article>
         <img src="{% static "img/a.jpg" %}" alt="">
 
         <div>
-            <h3>Lorem ipsum dolor sit.</h3>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, quia incidunt. Facere necessitatibus hic
-                debitis reprehenderit soluta accusamus iusto ullam recusandae facilis cupiditate eveniet laudantium, assumenda
-                laboriosam, ipsa quasi inventore.
-            </p>
+            <h3>{{ blog.title }}</h3>
+            <p>{{ blog.description|truncatewords:30 }}</p>
 
             <a href="/" class="read-more">Read More...</a>
         </div>
     </article>
 
-    <article>
-        <img src="{% static "img/a.jpg" %}" alt="">
-
-        <div>
-            <h3>Lorem ipsum dolor sit.</h3>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, quia incidunt. Facere necessitatibus hic
-                debitis reprehenderit soluta accusamus iusto ullam recusandae facilis cupiditate eveniet laudantium, assumenda
-                laboriosam, ipsa quasi inventore.
-            </p>
-
-            <a href="/" class="read-more">Read More...</a>
-        </div>
-    </article>
-
-    <article>
-        <img src="{% static "img/a.jpg" %}" alt="">
-
-        <div>
-            <h3>Lorem ipsum dolor sit.</h3>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, quia incidunt. Facere necessitatibus hic
-                debitis reprehenderit soluta accusamus iusto ullam recusandae facilis cupiditate eveniet laudantium, assumenda
-                laboriosam, ipsa quasi inventore.
-            </p>
-
-            <a href="/" class="read-more">Read More...</a>
-        </div>
-    </article>
+    {% endfor %}
 </section>
 
 {% endblock content %}
