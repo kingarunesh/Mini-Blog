@@ -35,7 +35,7 @@ a:link {
 
 /* SECTION :        hero section         */
 
-header {
+.index-header {
     background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/static/img/hero.jpg");
     background-size: cover;
     height: 91vh;
@@ -51,7 +51,7 @@ header {
     font-family: "Caveat", cursive;
 }
 
-header div h2 {
+.index-header div h2 {
     margin-bottom: 1rem;
 
     font-size: 8rem;
@@ -61,7 +61,7 @@ header div h2 {
     color: red;
 }
 
-header p {
+.index-header p {
     font-size: 4rem;
     color: #ffd8a8;
 }
