@@ -33,6 +33,13 @@ a:link {
     margin-bottom: 2rem;
 }
 
+.read-more {
+    margin-top: 1rem;
+    font-size: 1.8rem;
+    color: #e8590c;
+    font-weight: bold;
+}
+
 /* SECTION :        hero section         */
 
 .index-header {

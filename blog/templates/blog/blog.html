@@ -12,18 +12,33 @@
 
 {% block css_style %}
 <!---->
-<link rel="stylesheet" href="{% static "about/css/style.css" %}">
+<link rel="stylesheet" href="{% static "blog/css/style.css" %}">
 <!---->
 {% endblock css_style %}
 
 <!---->
 
 {% block header %}
-<h1>Header ( change later. )</h1>
+<header class="blog-header">
+    <h2>Blog</h2>
+    <p>Start Learning Something New.</p>
+</header>
 {% endblock header %}
 
 <!---->
 
 {% block content %}
-<h1>Blog</h1>
+<section class="blog-section">
+    {% for blog in blogs %}
+    <article>
+        <img src="{% static "img/a.jpg" %}" alt="" />
+
+        <div>
+            <h2>{{ blog.title }}</h2>
+            <p>{{ blog.description|truncatewords:30 }}</p>
+            <a href="" class="read-more">Read More...</a>
+        </div>
+    </article>
+    {% endfor %}
+</section>
 {% endblock content %}

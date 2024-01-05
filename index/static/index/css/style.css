@@ -36,10 +36,3 @@ section.index-blog article div h3 {
 section.index-blog article div p {
     font-size: 1.8rem;
 }
-
-.read-more {
-    margin-top: 1rem;
-    font-size: 1.8rem;
-    color: #e8590c;
-    font-weight: bold;
-}
