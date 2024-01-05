@@ -15,9 +15,9 @@ def contact(request):
         if form.is_valid():
             form.save()
             
-            messages.success(request=request, message="Your message send.")
-            
-            return HttpResponseRedirect("/")
+            messages.success(request=request, message="Your message sent.")
+                        
+            return HttpResponseRedirect("/contact/")
             
     context = {
         "form": form

@@ -12,7 +12,7 @@
 
 {% block css_style %}
 <!---->
-<link rel="stylesheet" href="{% static "about/css/style.css" %}">
+<link rel="stylesheet" href="{% static "contact/css/style.css" %}">
 <!---->
 {% endblock css_style %}
 
@@ -28,13 +28,43 @@
 
 <!---->
 
-<form action="" method="POST">
-    {% csrf_token %}
-    <!---->
-    {{ form }}
+<section class="section-form">
+    <form action="" method="POST" novalidate>
+        {% csrf_token %}
+        <!--NOTE :      message          -->
+        {% if messages %}
+        <!---->
+        {% for message in messages %}
+        <p class="success-message">{{ message }}</p>
+        {% endfor %}
+        <!---->
+        {% endif %}
 
-    <input type="submit" value="Send" />
-</form>
+        <!--NOTE :      field error          -->
+        {% comment %} {% if form.non_field_errors %}
+        <!---->
+        {% for error in form.none_field_errors %}
+        <!---->
+        {{ error }}
+        <!---->
+        {% endfor %}
+        <!---->
+        {% endif %} {% endcomment %}
+
+        <!--NOTE :      input field          -->
+
+        {% for fm in form %}
+        <!---->
+        <div class="input-label">
+            {{ fm.label_tag }} {{ fm }}
+            <span class="contact-error-message">{{ fm.errors|striptags }}</span>
+        </div>
+        <!---->
+        {% endfor %}
+
+        <div class="form-btn"><input type="submit" value="Send" /></div>
+    </form>
+</section>
 
 <!---->
 
