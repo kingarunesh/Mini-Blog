@@ -25,5 +25,17 @@
 <!---->
 
 {% block content %}
-<h1>Contact</h1>
+
+<!---->
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <!---->
+    {{ form }}
+
+    <input type="submit" value="Send" />
+</form>
+
+<!---->
+
 {% endblock content %}
