@@ -8,9 +8,10 @@
         </div>
 
         <div class="right">
-            <li><a href="/">Dashboard</a></li>
+            <li><a href="{% url "dashboard" %}">Dashboard</a></li>
             <li><a href="{% url "sign_up" %}">Signup</a></li>
-            <li><a href="/">Login</a></li>
+            <li><a href="{% url "login_view" %}">Login</a></li>
+            <li><a href="{% url "logout_view" %}">Logout</a></li>
         </div>
     </ul>
 </nav>
