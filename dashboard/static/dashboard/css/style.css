@@ -335,3 +335,82 @@
 .edit-profile__section--form--btns input[type="reset"]:hover {
     background-color: rgb(169, 0, 0);
 }
+
+/* SECTION :        change password              */
+
+.change-password__section {
+    /* width: 80rem; */
+    padding: 4rem;
+}
+
+.change-password__section--form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.change-password__section--form--fields {
+}
+
+.change-password__section--form--fields--input {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1rem;
+    align-items: center;
+}
+
+.change-password__section--form--fields--input label {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.change-password__section--form--fields--input input {
+    padding: 1rem;
+    border-radius: 0.4rem;
+    font-size: 1.8rem;
+    border: 1px solid #333;
+    outline: none;
+}
+
+.change-password__section--form--fields--input input:focus {
+    border: 1px solid blue;
+}
+
+.change-password__section--form--fields--input--error {
+    grid-column: 2/3;
+    font-size: 1.6rem;
+    color: red;
+}
+
+.change-password__section--form--btns {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+}
+
+.change-password__section--form--btns input {
+    font-size: 1.8rem;
+    border: none;
+    padding: 0.8rem 1.4rem;
+    border-radius: 1rem;
+    color: #eee;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.change-password__section--form--btns input[type="submit"] {
+    background-color: #ff6919;
+}
+
+.change-password__section--form--btns input[type="submit"]:hover {
+    background-color: #ab3c00;
+}
+
+.change-password__section--form--btns input[type="reset"] {
+    background-color: red;
+}
+
+.change-password__section--form--btns input[type="reset"]:hover {
+    background-color: rgb(154, 0, 0);
+}
