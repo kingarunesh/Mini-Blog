@@ -1,4 +1,5 @@
 from django.shortcuts import render, HttpResponseRedirect, redirect
+from django.contrib.auth.models import User, Group
 
 from blog.models import Blog
 from blog.forms import BlogForm
@@ -29,6 +30,12 @@ def blog_details(request, blog_id):
 
 #SECTION :      add new blog post
 def add_blog(request):
+    if not request.user.is_authenticated:
+        return redirect("login_view")
+    
+    if not request.user.groups.filter(name="Editor").exists():
+        return redirect("blog")
+    
     form = BlogForm()
     
     if request.method == "POST":
@@ -56,6 +63,13 @@ def add_blog(request):
 #SECTION :      delete blog
 
 def delete_blog(request, blog_id):
+    if not request.user.is_authenticated:
+        return redirect("login_view")
+    
+    if not request.user.groups.filter(name="Editor").exists():
+        return redirect("blog")
+    
+    
     blog = Blog.objects.get(pk=blog_id)
     blog.delete()
     
@@ -64,6 +78,13 @@ def delete_blog(request, blog_id):
 
 #SECTION :      update blog
 def update_blog(request, blog_id):
+    if not request.user.is_authenticated:
+        return redirect("login_view")
+    
+    if not request.user.groups.filter(name="Manager").exists():
+        return redirect("blog")
+    
+    
     blog = Blog.objects.get(pk=blog_id)
     form = BlogForm(instance=blog)
     

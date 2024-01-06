@@ -27,8 +27,16 @@
                     <th>ID</th>
                     <th>TITLE</th>
                     <th>VIEW</th>
+
+                    {% if perms.blog.change_blog %}
                     <th>EDIT</th>
+                    {% endif %}
+
+                    <!---->
+
+                    {% if perms.blog.delete_blog %}
                     <th>DELETE</th>
+                    {% endif %}
                 </tr>
             </thead>
 
@@ -37,9 +45,18 @@
                 <tr>
                     <td>{{ blog.id }}</td>
                     <td>{{ blog.title }}</td>
+
                     <td><a href="{% url "blog_details" blog.id %}">👁️</a></td>
+                    
+                    {% if perms.blog.change_blog %}
                     <td><a href="{% url "update_blog" blog.id %}">📝</a></td>
+                    {% endif %}
+
+                    <!---->
+                    
+                    {% if perms.blog.delete_blog %}
                     <td><a href="{% url "delete_blog" blog.id %}">❌</a></td>
+                    {% endif %}
                 </tr>
                 {% endfor %}
             </tbody>

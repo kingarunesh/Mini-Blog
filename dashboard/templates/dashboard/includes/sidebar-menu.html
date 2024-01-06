@@ -24,11 +24,13 @@
             {% endif %}
             ><a href="{% url "blogs_view" %}">Blogs</a></li>
 
+            {% if perms.blog.add_blog %}
             <li
             {% if request.path == "/add-blog/" %}
             class="active-path"
             {% endif %}
             ><a href="{% url "add_blog" %}">Add New Blog</a></li>
+            {% endif %}
         </ul>
     </aside>
 

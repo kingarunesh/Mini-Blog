@@ -1,6 +1,7 @@
 from django.shortcuts import render, HttpResponseRedirect, redirect
 from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm
 from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth.models import User, Group
 
 from dashboard.forms import SignUpForm, EditProfileForm
 from blog.models import Blog
@@ -18,10 +19,12 @@ def dashboard(request):
         "user": request.user
     }
     
+    # print(request.user.groups.all())
+    
     return render(request=request, template_name="dashboard/dashboard.html", context=context)
 
 
-#NOTE :         profile
+#NOTE :         edit profile
 def edit_profile_view(request):
     if not request.user.is_authenticated:
         return redirect("login_view")
@@ -104,6 +107,9 @@ def sign_up(request):
             
             user = authenticate(username=username, password=password)
             login(request=request, user=user)
+            
+            group = Group.objects.get(name="Editor")
+            user.groups.add(group)
             
             return redirect("login_view")
             

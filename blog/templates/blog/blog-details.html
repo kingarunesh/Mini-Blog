@@ -39,9 +39,22 @@
         </div>
 
         <div class="blog-details-actions">
+
+            {% if perms.blog.add_blog %}
             <a href="{% url 'add_blog' %}" class="blog-details-actions-add">Add</a>
+            {% endif %}
+
+            <!---->
+
+            {% if perms.blog.change_blog %}
             <a href="{% url "update_blog" blog.id %}" class="blog-details-actions-edit">Edit</a>
+            {% endif %}
+
+            <!---->
+
+            {% if perms.blog.delete_blog %}
             <a href="{% url "delete_blog" blog.id %}" class="blog-details-actions-delete">Delete</a>
+            {% endif %}
         </div>
     </article>
 </section>
