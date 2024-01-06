@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponseRedirect
+from django.shortcuts import render, HttpResponseRedirect, redirect
 
 from blog.models import Blog
 from blog.forms import BlogForm
@@ -41,10 +41,12 @@ def add_blog(request):
             data = Blog(title=title, description=description)
             data.save()
             
-            return HttpResponseRedirect("/blog/")
+            return redirect("blog_details", blog_id=data.id)
     
     context = {
-        "form": form
+        "form": form,
+        "title": "Add New Blog Post 📝",
+        "btn_title": "Add"
     }
     
     return render(request=request, template_name="blog/add-blog.html", context=context)
@@ -58,3 +60,27 @@ def delete_blog(request, blog_id):
     blog.delete()
     
     return HttpResponseRedirect("/blog/")
+
+
+#SECTION :      update blog
+def update_blog(request, blog_id):
+    blog = Blog.objects.get(pk=blog_id)
+    form = BlogForm(instance=blog)
+    
+    if request.method == "POST":
+        form = BlogForm(instance=blog, data=request.POST)
+        
+        if form.is_valid():
+            form.save()
+            
+            return redirect("blog_details", blog_id=blog_id)
+    
+    
+    context = {
+        "blog": blog,
+        "form": form,
+        "title": "Edit Your Blog ✍️",
+        "btn_title": "Update"
+    }
+    
+    return render(request=request, template_name="blog/add-blog.html", context=context)

@@ -16,7 +16,10 @@
 
 {% block header %}
 <header class="add-blog-header">
+    {% comment %}
     <h2>Add New Blog Post 📝</h2>
+    {% endcomment %}
+    <h2>{{ title }}</h2>
 </header>
 {% endblock header %}
 
@@ -39,7 +42,7 @@
         </div>
 
         <div class="add-blog__section--form-btn">
-            <input type="submit" value="Add" class="blog-add-btn" />
+            <input type="submit" value="{{ btn_title }}" class="blog-add-btn" />
             <input type="reset" value="Reset" class="blog-reset-btn" />
         </div>
     </form>

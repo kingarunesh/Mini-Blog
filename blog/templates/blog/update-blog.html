@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+<!---->
+
+{% load static %}
+
+<!---->
+
+{% block css_style %} <link rel="stylesheet" href="{% static "blog/css/style.css" %}"> {% endblock css_style %}
+
+<!---->
+
+{% block title %} Edit Blog : {{blog.title }} {% endblock title %}
+
+<!---->
+
+{% block header %}
+<header class="edit-blog-header">
+    <h2>Edit Your Blog ✍️</h2>
+</header>
+{% endblock header %}
+
+<!---->
+
+{% block content %}
+
+<form action="" method="POST">
+    {% csrf_token %}
+
+    <!---->
+
+    {{ form }}
+
+    <!---->
+
+    <input type="submit" value="Update" />
+</form>
+
+{% endblock content %}

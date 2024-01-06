@@ -287,3 +287,34 @@
 .blog-reset-btn:hover {
     background-color: #802400;
 }
+
+/* SECTION :        edit blog         */
+
+/* NOTE :       header           */
+
+.edit-blog-header {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+        url("/static/blog/img/edit-blog-header.jpg");
+
+    background-size: cover;
+    height: 40rem;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    font-family: "Caveat", cursive;
+    letter-spacing: 1px;
+    word-spacing: 1px;
+}
+
+.edit-blog-header h2 {
+    font-size: 8rem;
+    width: 80%;
+    text-align: center;
+
+    color: #d9480f;
+}

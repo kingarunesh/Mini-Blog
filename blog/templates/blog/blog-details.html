@@ -40,7 +40,7 @@
 
         <div class="blog-details-actions">
             <a href="{% url 'add_blog' %}" class="blog-details-actions-add">Add</a>
-            <a href="" class="blog-details-actions-edit">Edit</a>
+            <a href="{% url "update_blog" blog.id %}" class="blog-details-actions-edit">Edit</a>
             <a href="{% url "delete_blog" blog.id %}" class="blog-details-actions-delete">Delete</a>
         </div>
     </article>
