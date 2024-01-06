@@ -1,8 +1,8 @@
 from django.shortcuts import render, HttpResponseRedirect, redirect
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm, UserChangeForm
 from django.contrib.auth import login, logout, authenticate
 
-from dashboard.forms import SignUpForm
+from dashboard.forms import SignUpForm, EditProfileForm
 
 
 
@@ -22,16 +22,40 @@ def dashboard(request):
 
 #NOTE :         profile
 def edit_profile_view(request):
-    return render(request=request, template_name="dashboard/profile.html")
+    if not request.user.is_authenticated:
+        return redirect("login_view")
+    
+    
+    form = EditProfileForm(instance=request.user)
+    
+    if request.method == "POST":
+        form = EditProfileForm(request.POST, instance=request.user)
+        
+        if form.is_valid():
+            form.save()
+            
+            return redirect("dashboard")
+    
+    context = {
+        "form": form
+    }
+    
+    return render(request=request, template_name="dashboard/edit-profile.html", context=context)
 
 
 #NOTE :         change password
 def change_password_view(request):
+    if not request.user.is_authenticated:
+        return redirect("login_view")
+    
     return render(request=request, template_name="dashboard/change-password.html")
 
 
 #NOTE :         blogs
 def blogs_view(request):
+    if not request.user.is_authenticated:
+        return redirect("login_view")
+    
     return render(request=request, template_name="dashboard/blogs.html")
 
 
