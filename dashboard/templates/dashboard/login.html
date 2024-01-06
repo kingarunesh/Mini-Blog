@@ -14,33 +14,34 @@
 
 <!---->
 
-{% block header %}
-<header>
-    <h2>Header (change later)</h2>
-</header>
-{% endblock header %}
-
-<!---->
-
 {% block content %}
 
-<section class="login-section">
-    <form action="" method="POST" novalidate>
-        {% csrf_token %}
+<main class="login__main">
+    <header class="login__main--header"></header>
 
-        <!---->
+    <section class="login__main__section">
+        <form action="" method="POST" class="login__main__section--form" novalidate>
+            {% csrf_token %}
 
-        <div>
-            {% for fm in form %}
-            <div>{{ fm.label_tag }} {{ fm }} {{ fm.errors|striptags }}</div>
-            {% endfor %}
-        </div>
+            <!---->
 
-        <!---->
+            <div class="login__main__section--form--fields">
+                {% for fm in form %}
+                <div class="login__main__section--form--fields--input">
+                    {{ fm.label_tag }} {{ fm }}
+                    <span class="login__main__section--form--fields--input--error">{{ fm.errors|striptags }}</span>
+                </div>
+                {% endfor %}
+            </div>
 
-        <input type="submit" value="Login" />
-    </form>
-</section>
+            <!---->
+
+            <div class="login__main__section--form--btn">
+                <input type="submit" value="Login" />
+            </div>
+        </form>
+    </section>
+</main>
 
 {% endblock content %}
 

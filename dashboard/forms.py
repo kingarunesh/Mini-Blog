@@ -5,6 +5,8 @@ from django.contrib.auth.forms import UserCreationForm
 
 
 class SignUpForm(UserCreationForm):
+    #ERROR :        change later - error message
+    password2 = forms.CharField(label="Confirm Password")
     class Meta:
         model = User
         fields = ["username", "first_name", "last_name", "email"]
