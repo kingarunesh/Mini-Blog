@@ -13,31 +13,31 @@
 {% block css_style %} <link rel="stylesheet" href="{% static "dashboard/css/style.css" %}"> {% endblock css_style %}
 
 <!---->
-
-{% block header %}
-<header>Header (Change Later)</header>
-{% endblock header %}
-
-<!---->
-
 {% block content %}
+<main class="sign-up__main">
+    <header class="sign-up__main--header"></header>
 
-<section class="sign-up__section">
-    <form action="" method="POST" novalidate>
-        {% csrf_token %}
+    <section class="sign-up__section">
+        <form action="" method="POST" class="sign-up__section--form" novalidate>
+            {% csrf_token %}
 
-        <!---->
+            <!---->
 
-        <div>
-            {% for fm in form %}
-            <div>{{ fm.label_tag }} {{ fm }} {{ fm.errors|striptags }}</div>
-            {% endfor %}
-        </div>
+            <div class="sign-up__section--form--fields">
+                {% for fm in form %}
+                <div class="sign-up__section--form--fields--input">
+                    {{ fm.label_tag }} {{ fm }}
+                    <span class="sign-up__section--form--fields--input--error">{{ fm.errors|striptags }}</span>
+                </div>
+                {% endfor %}
+            </div>
 
-        <!---->
+            <!---->
 
-        <input type="submit" value="Sign Up" />
-    </form>
-</section>
-
+            <div class="sign-up__section--form--btn">
+                <input type="submit" value="Sign Up" />
+            </div>
+        </form>
+    </section>
+</main>
 {% endblock content %}
