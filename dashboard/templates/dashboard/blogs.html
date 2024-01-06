@@ -20,8 +20,30 @@
 <main class="dashboard">
     {% include "dashboard/includes/sidebar-menu.html" %}
 
-    <section class="dashboard__section">
-        <h1>blog</h1>
+    <section class="blog--dashboard__section">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>TITLE</th>
+                    <th>VIEW</th>
+                    <th>EDIT</th>
+                    <th>DELETE</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for blog in blogs %}
+                <tr>
+                    <td>{{ blog.id }}</td>
+                    <td>{{ blog.title }}</td>
+                    <td><a href="{% url "blog_details" blog.id %}">👁️</a></td>
+                    <td><a href="{% url "update_blog" blog.id %}">📝</a></td>
+                    <td><a href="{% url "delete_blog" blog.id %}">❌</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </section>
 </main>
 {% endblock content %}

@@ -3,6 +3,7 @@ from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm
 from django.contrib.auth import login, logout, authenticate
 
 from dashboard.forms import SignUpForm, EditProfileForm
+from blog.models import Blog
 
 
 
@@ -73,7 +74,14 @@ def blogs_view(request):
     if not request.user.is_authenticated:
         return redirect("login_view")
     
-    return render(request=request, template_name="dashboard/blogs.html")
+    
+    blogs = Blog.objects.all()
+    
+    context = {
+        "blogs": blogs
+    }
+    
+    return render(request=request, template_name="dashboard/blogs.html", context=context)
 
 
 

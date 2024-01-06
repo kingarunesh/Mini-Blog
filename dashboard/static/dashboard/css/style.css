@@ -414,3 +414,29 @@
 .change-password__section--form--btns input[type="reset"]:hover {
     background-color: rgb(154, 0, 0);
 }
+
+/* SECTION :        blog             */
+
+.blog--dashboard__section {
+    padding: 2rem;
+    font-size: 1.8rem;
+}
+
+.blog--dashboard__section table,
+.blog--dashboard__section tr,
+.blog--dashboard__section td,
+.blog--dashboard__section th {
+    border: 1px solid #555;
+    border-collapse: collapse;
+    padding: 1rem;
+    transition: all 0.5s;
+}
+
+.blog--dashboard__section th {
+    background-color: #ff772d;
+    color: #eee;
+}
+
+.blog--dashboard__section tr:hover {
+    background-color: #ddd;
+}

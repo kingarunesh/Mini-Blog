@@ -23,7 +23,12 @@
             class="active-path"
             {% endif %}
             ><a href="{% url "blogs_view" %}">Blogs</a></li>
+
+            <li
+            {% if request.path == "/add-blog/" %}
+            class="active-path"
+            {% endif %}
+            ><a href="{% url "add_blog" %}">Add New Blog</a></li>
         </ul>
     </aside>
 
-{% comment %} {% if request.path == "..." %} class="active-path" {% endif %} {% endcomment %}
