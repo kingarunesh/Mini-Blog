@@ -44,6 +44,10 @@ a {
     font-weight: bold;
 }
 
+.active-path {
+    background-color: rgb(0, 101, 0);
+}
+
 /* SECTION :        hero section         */
 
 .index-header {

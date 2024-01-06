@@ -1,0 +1,29 @@
+<aside class="dashboard__aside">
+        <ul  class="dashboard__aside--ul">
+            <li
+            {% if request.path == "/dashboard/" %}
+            class="active-path"
+            {% endif %}
+            ><a href="{% url "dashboard" %}">Dashboard</a></li>
+
+            <li
+            {% if request.path == "/dashboard/edit-profile/" %}
+            class="active-path"
+            {% endif %}
+            ><a href="{% url "edit_profile_view" %}">Edit Profile</a></li>
+            
+            <li
+            {% if request.path == "/dashboard/change-password/" %}
+            class="active-path"
+            {% endif %}
+            ><a href="{% url "change_password_view" %}">Change Password</a></li>
+            
+            <li
+            {% if request.path == "/dashboard/blogs/" %}
+            class="active-path"
+            {% endif %}
+            ><a href="{% url "blogs_view" %}">Blogs</a></li>
+        </ul>
+    </aside>
+
+{% comment %} {% if request.path == "..." %} class="active-path" {% endif %} {% endcomment %}

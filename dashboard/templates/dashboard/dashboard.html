@@ -14,14 +14,29 @@
 
 <!---->
 
-{% block header %}
-<header>
-    <h2>Header (Change Later)</h2>
-</header>
-{% endblock header %}
-
 <!---->
 
 {% block content %}
-<h1>Hello</h1>
+<main class="dashboard">
+    {% include "dashboard/includes/sidebar-menu.html" %}
+
+    <section class="dashboard__section">
+        <img src="{% static "dashboard/img/profile.jpg" %}" alt="" class="profile-img">
+
+        <ul>
+            <li><strong>USERNAME : </strong> <span>{{ user.username }}</span></li>
+            <li><strong>FIRST NAME : </strong> <span>{{ user.first_name }}</span></li>
+            <li><strong>LAST NAME : </strong> <span>{{ user.last_name }}</span></li>
+            <li><strong>EMAIL : </strong> <span>{{ user.email }}</span></li>
+            <li><strong>JOINED DATE : </strong> <span>{{ user.date_joined }}</span></li>
+            <li><strong>LAST LOGIN : </strong> <span>{{ user.last_login }}</span></li>
+        </ul>
+
+        <div class="profile__actions">
+            <a href="{% url "edit_profile_view" %}" class="edit-profile">Edit</a>
+            <a href="{% url "change_password_view" %}" class="change-password-profile">Change Password</a>
+            <a href="" class="delete-profile">Delete Account</a>
+        </div>
+    </section>
+</main>
 {% endblock content %}

@@ -8,12 +8,31 @@ from dashboard.forms import SignUpForm
 
 #SECTION :      dashboard
 
+#NOTE :         dashboard
 def dashboard(request):
     if not request.user.is_authenticated:
         return redirect("login_view")
     
-    return render(request=request, template_name="dashboard/dashboard.html")
+    context = {
+        "user": request.user
+    }
+    
+    return render(request=request, template_name="dashboard/dashboard.html", context=context)
 
+
+#NOTE :         profile
+def edit_profile_view(request):
+    return render(request=request, template_name="dashboard/profile.html")
+
+
+#NOTE :         change password
+def change_password_view(request):
+    return render(request=request, template_name="dashboard/change-password.html")
+
+
+#NOTE :         blogs
+def blogs_view(request):
+    return render(request=request, template_name="dashboard/blogs.html")
 
 
 
