@@ -48,3 +48,13 @@ def add_blog(request):
     }
     
     return render(request=request, template_name="blog/add-blog.html", context=context)
+
+
+
+#SECTION :      delete blog
+
+def delete_blog(request, blog_id):
+    blog = Blog.objects.get(pk=blog_id)
+    blog.delete()
+    
+    return HttpResponseRedirect("/blog/")
