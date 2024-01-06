@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+<!---->
+
+{% load static %}
+
+<!---->
+
+{% block title %} {{ blog.title }} {% endblock title %}
+
+<!---->
+
+{% block css_style %} <link rel="stylesheet" href="{% static "blog/css/style.css" %}"> {% endblock css_style %}
+
+<!---->
+
+{% block header %}
+
+<header class="blog-details-header">
+    <h2>{{ blog.title }}</h2>
+</header>
+
+{% endblock header %}
+
+<!---->
+
+{% block content %}
+
+<section class="blog-details-section">
+    <article>
+        <div class="blog-details-post">
+            <img src="{% static "img/a.jpg" %}" alt="{{ blog.title }}">
+
+            <div class="blog-details-post-text">
+                <h2>{{ blog.title }}</h2>
+
+                <p>{{ blog.description }}</p>
+            </div>
+        </div>
+
+        <div class="blog-details-actions">
+            <a href="" class="blog-details-actions-add">Add</a>
+            <a href="" class="blog-details-actions-edit">Edit</a>
+            <a href="" class="blog-details-actions-delete">Delete</a>
+        </div>
+    </article>
+</section>
+
+{% endblock content %}
