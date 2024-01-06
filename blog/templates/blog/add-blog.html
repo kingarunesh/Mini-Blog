@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+<!---->
+
+{% load static %}
+
+<!---->
+
+{% block title %}Add New Post {% endblock title %}
+
+<!---->
+
+{% block css_style %} <link rel="stylesheet" href="{% static "blog/css/style.css" %}"> {% endblock css_style %}
+
+<!---->
+
+{% block header %}
+<header class="add-blog-header">
+    <h2>Add New Blog Post 📝</h2>
+</header>
+{% endblock header %}
+
+<!---->
+
+{% block content %}
+
+<section class="add-blog__section">
+    <form action="" method="POST" class="add-blog__section--form" novalidate>
+        {% csrf_token %}
+
+        <div class="add-blog__section--form-field">
+            {% for fm in form %}
+            <!---->
+            <div class="add-blog__section--form-input">
+                {{ fm.label_tag }} {{ fm }} <span class="error">{{ fm.errors|striptags }}</span>
+            </div>
+            <!---->
+            {% endfor %}
+        </div>
+
+        <div class="add-blog__section--form-btn">
+            <input type="submit" value="Add" class="blog-add-btn" />
+            <input type="reset" value="Reset" class="blog-reset-btn" />
+        </div>
+    </form>
+</section>
+
+{% endblock content %}
