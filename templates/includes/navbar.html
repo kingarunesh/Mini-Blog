@@ -8,10 +8,17 @@
         </div>
 
         <div class="right">
+            {% if user.is_authenticated %}
+
             <li><a href="{% url "dashboard" %}">Dashboard</a></li>
+            <li><a href="{% url "logout_view" %}">Logout</a></li>
+
+            {% else %}
+
             <li><a href="{% url "sign_up" %}">Signup</a></li>
             <li><a href="{% url "login_view" %}">Login</a></li>
-            <li><a href="{% url "logout_view" %}">Logout</a></li>
+
+            {% endif %}
         </div>
     </ul>
 </nav>
